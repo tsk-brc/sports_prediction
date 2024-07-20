@@ -1,0 +1,26 @@
+<!-- app/views/predictions/new.html.erb -->
+<h1>Tennis Prediction</h1>
+
+<%= form_with url: predict_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :player1_rank %>
+    <%= form.number_field :player1_rank %>
+  </div>
+  <div>
+    <%= form.label :player2_rank %>
+    <%= form.number_field :player2_rank %>
+  </div>
+  <div>
+    <%= form.label :player1_serve_ace %>
+    <%= form.number_field :player1_serve_ace %>
+  </div>
+  <div>
+    <%= form.label :player2_serve_ace %>
+    <%= form.number_field :player2_serve_ace %>
+  </div>
+  <%= form.submit 'Predict' %>
+<% end %>
+
+<% if @prediction %>
+  <h2>Prediction: <%= @prediction %></h2>
+<% end %>
